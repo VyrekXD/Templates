@@ -1,0 +1,83 @@
+{
+	"Args Command": {
+		"scope": "typescript",
+		"prefix": "commandArgs",
+		"body": [
+			"import { Constants, Interaction } from 'detritus-client'",
+			"import { BaseSlashCommand } from '../BaseCommand.js'",
+			"",
+			"interface ArgsProps {",
+			"",
+			"}",
+			"",
+			"export default class $1Command extends BaseSlashCommand {",
+			"  name = '$1'",
+			"  description = '$2'",
+			"",
+			"  constructor() {",
+			"    super({",
+			"       options: [",
+			"                {",
+			"                }",
+			"                ]",
+			"         })",
+			"  }",
+			"",
+			"  async run(ctx: Interaction.InteractionContext, args: ArgsProps) {",
+			"     $3",
+			"  }",
+			"}"
+		],
+		"description": "Writes the base of a slashcommand"
+	},
+	"Basic Command": {
+		"scope": "typescript",
+		"prefix": "commandBasic",
+		"body": [
+			"import { Interaction } from 'detritus-client'",
+			"import { BaseSlashCommand } from '../BaseCommand.js'",
+			"",
+			"export default class $1Command extends BaseSlashCommand {",
+			"   name = '$1'",
+			"   description = '$2'",
+			"",
+			"   async run(ctx: Interaction.InteractionContext) {",
+			"      $3",
+			"   }",
+			"}"
+		]
+	},
+	"GroupCommand": {
+		"scope": "typescript",
+		"prefix": "commandGroup",
+		"body": [
+			"import { BaseSlashCommand } from '../BaseCommand.js'",
+			"",
+			"import { ${1}Command } from './${1}.js'",
+			"",
+			"export default class ${2}GroupCommand extends BaseSlashCommand {",
+			"   description = '${3}'",
+			"   name = '${2}'",
+			"",
+			"   constructor() {",
+			"        super({",
+			"           options: [new ${1}Command()]",
+			"       })",
+			"   }",
+			"}"
+		]
+	},
+	"Event": {
+		"scope": "typescript",
+		"prefix": "event",
+		"body": [
+			"import { ShardClient, ClusterClient, GatewayClientEvents } from 'detritus-client'",
+			"",
+			"export const run = (client: ShardClient | ClusterClient, ${2}) => {",
+			"${3}",
+			"}",
+			"",
+			"export const name = '${1}'"
+		]
+	}
+}
