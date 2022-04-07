@@ -1,0 +1,11 @@
+# NPM
+node_modules
+
+# Keys
+*.env
+
+# Build
+build
+
+#pnpm
+pnpm-lock.yaml
